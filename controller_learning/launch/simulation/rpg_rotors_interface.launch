@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="quad_name" default="hummingbird"/>
+    <arg name="use_ground_truth" default="true"/>
+
+    <group ns="$(arg quad_name)">
+        <!-- To debug the rpg_rotors_interface -->
+        <group if="$(arg use_ground_truth)">
+            <node pkg="rpg_rotors_interface" type="rpg_rotors_interface"
+                  name="rpg_rotors_interface" clear_params="true" output="screen" launch-prefix="gdb -ex run --args" >
+                <rosparam file="$(find rpg_rotors_interface)/parameters/rpg_rotors_interface.yaml" />
+                <remap from="odometry" to="ground_truth/odometry" />
+                <remap from="rpg_rotors_interface/arm" to="bridge/arm" />
+            </node>
+        </group>
+    </group>
+
+</launch>

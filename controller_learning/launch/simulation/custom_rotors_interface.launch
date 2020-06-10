@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="quad_name" default="hummingbird"/>
+    <arg name="use_ground_truth" default="true"/>
+
+    <group ns="$(arg quad_name)">
+        <!-- To debug the rpg_rotors_interface -->
+        <group if="$(arg use_ground_truth)">
+            <node pkg="custom_rotors_interface" type="custom_rotors_interface_node"
+                  name="custom_rotors_interface" output="screen" >
+                <rosparam file="$(find custom_rotors_interface)/parameters/custom_rotors_interface.yaml" />
+                <remap from="odometry" to="ground_truth/odometry" />
+                <remap from="arm" to="bridge/arm" />
+            </node>
+        </group>
+        <group unless="$(arg use_ground_truth)">
+            <node pkg="custom_rotors_interface" type="custom_rotors_interface_node"
+                  name="custom_rotors_interface" output="screen" >
+                <rosparam file="$(find custom_rotors_interface)/parameters/custom_rotors_interface.yaml" />
+                <remap from="odometry" to="odometry_sensor1/odometry" />
+                <remap from="arm" to="bridge/arm" />
+            </node>
+        </group>
+    </group>
+
+</launch>

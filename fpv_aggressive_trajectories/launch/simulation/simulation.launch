@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="quad_name" default="hummingbird"/>
+    <arg name="use_ground_truth" default="false"/>
+    <arg name="enable_command_feedthrough" default="true"/>
+    <arg name="controller" default="rpg_mpc"/>
+    <!-- VIO Pipeline -->
+    <include file="$(find vins_estimator)/launch/raf_simulation.launch">
+    </include>
+    <!-- Quadrotor simulation -->
+    <include file="$(find controller_learning)/launch/simulation/quadrotor_rgb_world_no_controller.launch">
+        <arg name="quad_name" value="$(arg quad_name)"/>
+        <arg name="gui" value="false"/>
+    </include>
+    <!-- Odometry Switch -->
+    <node pkg="odometry_converter" name="odometry_converter"
+          type="odometry_converter_node" output="screen">
+        <remap from="odometry_in" to="/vins_estimator/imu_propagate"/>
+        <remap from="ground_truth_in" to="/hummingbird/ground_truth/odometry"/>
+        <remap from="odometry_out" to="/hummingbird/odometry_converted"/>
+        <remap from="switch_odometry" to="switch_odometry"/>
+    </node>
+    <!-- custom RotorS interface -->
+    <include file="$(find fpv_aggressive_trajectories)/launch/simulation/custom_rotors_interface.launch">
+        <arg name="quad_name" value="$(arg quad_name)"/>
+        <arg name="use_ground_truth" value="$(arg use_ground_truth)"/>
+    </include>
+    <!-- High Level Controller -->
+    <include file="$(find fpv_aggressive_trajectories)/launch/simulation/controller.launch">
+        <arg name="quad_name" value="$(arg quad_name)"/>
+        <arg name="use_ground_truth" value="$(arg use_ground_truth)"/>
+        <arg name="controller" value="$(arg controller)"/>
+        <arg name="enable_command_feedthrough" value="$(arg enable_command_feedthrough)"/>
+        <arg name="velocity_estimate_in_world_frame" value="false"/>
+    </include>
+    <group ns="$(arg quad_name)">
+        <rosparam file="$(find position_controller)/parameters/default.yaml"/>
+        <rosparam file="$(find fpv_aggressive_trajectories)/parameters/mpc_params.yaml"/>
+        <!-- Trajectory Generation -->
+        <node pkg="fpv_aggressive_trajectories" name="fpv_aggressive_trajectories"
+              type="fpv_aggressive_trajectories" output="screen">
+            <rosparam file="$(find fpv_aggressive_trajectories)/parameters/mpc_params.yaml"/>
+            <rosparam file="$(find state_predictor)/parameters/hummingbird.yaml"/>
+            <remap from="state_estimate" to="odometry_converted"/>
+            <remap from="initialized_vio" to="/vins_estimator/vio_success_init"/>
+            <remap from="switch_to_network" to="switch_to_network"/>
+            <param name="loop_rate" value="55.0"/>
+            <param name="desired_yaw_P" value="0.0"/>
+            <param name="circle_velocity" value="3.5"/>
+            <param name="n_loops" value="1"/>
+        </node>
+        <!-- Visualization -->
+        <node pkg="trajectory_visualizer" name="trajectory_visualizer"
+              type="trajectory_visualizer" output="screen">
+            <param name="n_points_to_visualize" value="300"/>
+        </node>
+        <node pkg="rviz" type="rviz" name="viz_face"
+              args="-d $(find fpv_aggressive_trajectories)/rviz/trajectory_comparison_looping_sim.rviz"/>
+    </group>
+</launch>

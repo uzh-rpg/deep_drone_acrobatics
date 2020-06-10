@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="quad_name" default="hummingbird"/>
+    <arg name="use_ground_truth" default="false"/>
+    <arg name="controller" default="rpg_mpc"/> <!-- "rpg_mpc", "rpg_pid", "asl_mpc" -->
+
+
+
+    <group ns="$(arg quad_name)">
+
+
+        <node pkg="rviz" type="rviz" name="viz_face"
+              args="-d $(find fpv_aggressive_trajectories)/rviz/trajectory_comparison_looping_sim.rviz"/>
+
+
+    </group>
+
+
+</launch>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>controller_learning</name>
+  <version>0.0.0</version>
+  <description>The controller_learning package</description>
+
+  <maintainer email="ekaufmann@ifi.uzh.ch">Elia Kaufmann</maintainer>
+  <license>TODO</license>
+
+  <author>Elia Kaufmann</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>catkin_simple</buildtool_depend>
+
+  <depend>autopilot</depend>
+  <depend>eigen_catkin</depend>
+  <depend>minimum_jerk_trajectories</depend>
+  <depend>quadrotor_common</depend>
+  <depend>quadrotor_msgs</depend>
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+  <depend>nav_msgs</depend>
+
+  <export>
+    
+  </export>
+</package>

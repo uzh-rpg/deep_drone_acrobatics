@@ -1,0 +1,423 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="real_track">
+
+  <plugin name="ros_interface_plugin" filename="librotors_gazebo_ros_interface_plugin.so"></plugin>
+
+
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <gui fullscreen="0">
+      <camera name="user_camera">
+        <pose>-20.0 10 20.0 0 0.5 0</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+
+    <model name="ground_plane">
+    <pose>-60.0 -60.0 0 0 0 0</pose>
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>120 120</size>
+          </plane>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>100</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="visual">
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>120 120</size>
+          </plane>
+        </geometry>
+        <material>
+            <script>
+              <uri>model://race_track/iros_materials/materials/scripts/carpet.material</uri>
+              <uri>model://race_track/iros_materials/materials/textures</uri>
+              <name>iros/carpet</name>
+            </script>
+          </material>
+      </visual>
+    </link>
+  </model>
+
+  <model name="wall_1">
+    <pose>-60.0 0.0 34.0 0 0 0</pose>
+    <static>true</static>
+      <link name="link">
+        <inertial>
+          <mass>1.0</mass>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.1 120.0 70.0</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.1 120.0 70.0</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://race_track/iros_materials/materials/scripts/wall_1.material</uri>
+              <uri>model://race_track/iros_materials/materials/textures</uri>
+              <name>iros/wall_1</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+  <model name="wall_2">
+    <pose>0.0 -60.0 34.0 0 0 0</pose>
+    <static>true</static>
+      <link name="link">
+        <inertial>
+          <mass>1.0</mass>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>120 0.1 70.0</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>120 0.1 70.0</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://race_track/iros_materials/materials/scripts/wall_2.material</uri>
+              <uri>model://race_track/iros_materials/materials/textures</uri>
+              <name>iros/wall_2</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+  <model name="wall_3">
+    <pose>60.0 0.0 34.0 0 0 0</pose>
+    <static>true</static>
+      <link name="link">
+        <inertial>
+          <mass>1.0</mass>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.1 120.0 70.0</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.1 120.0 70.0</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://race_track/iros_materials/materials/scripts/wall_3.material</uri>
+              <uri>model://race_track/iros_materials/materials/textures</uri>
+              <name>iros/wall_3</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+  <model name="wall_4">
+    <pose>0.0 60.0 34.0 0 0 0</pose>
+    <static>true</static>
+      <link name="link">
+        <inertial>
+          <mass>1.0</mass>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>120 0.1 70.0</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>120 0.1 70.0</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://race_track/iros_materials/materials/scripts/wall_4.material</uri>
+              <uri>model://race_track/iros_materials/materials/textures</uri>
+              <name>iros/wall_4</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+<!------------------------------------------------------------
+      ---- Gate 1
+      ------------------------------------------------------------>
+
+    <model name="gate_1">
+      <pose>10 0 0.3 0 0 0</pose>
+      <static>true</static>
+      <link name="gate_1_body">
+        <collision name="gate_1_collision">
+          <geometry>
+            <mesh>
+              <uri>model://race_track/real_world/gate/meshes/gate.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="gate_1_visual">
+          <geometry>
+            <mesh>
+              <uri>model://race_track/real_world/gate/meshes/gate.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Red</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+<!------------------------------------------------------------
+      ---- Gate 2
+      ------------------------------------------------------------>
+
+    <model name="gate_2">
+      <pose>10.7 0 4.4 0 0 0</pose>
+      <static>true</static>
+      <link name="gate_2_body">
+        <collision name="gate_2_collision">
+          <geometry>
+            <mesh>
+              <uri>model://race_track/real_world/gate/meshes/gate.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="gate_2_visual">
+          <geometry>
+            <mesh>
+              <uri>model://race_track/real_world/gate/meshes/gate.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Red</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+<!------------------------------------------------------------
+      ---- Gate 3
+      ------------------------------------------------------------>
+
+    <model name="gate_3">
+      <pose>20 0 1.4 0 0 0</pose>
+      <static>true</static>
+      <link name="gate_3_body">
+        <collision name="gate_3_collision">
+          <geometry>
+            <mesh>
+              <uri>model://race_track/real_world/gate/meshes/gate.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="gate_3_visual">
+          <geometry>
+            <mesh>
+              <uri>model://race_track/real_world/gate/meshes/gate.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Red</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+<!------------------------------------------------------------
+      ---- Gate 4
+      ------------------------------------------------------------>
+
+    <model name="gate_4">
+      <pose>44.7 1.4 1.4 0 0 0.8</pose>
+      <static>true</static>
+      <link name="gate_4_body">
+        <collision name="gate_4_collision">
+          <geometry>
+            <mesh>
+              <uri>model://race_track/real_world/gate/meshes/gate.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="gate_4_visual">
+          <geometry>
+            <mesh>
+              <uri>model://race_track/real_world/gate/meshes/gate.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Red</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+<!------------------------------------------------------------
+      ---- Gate 5
+      ------------------------------------------------------------>
+
+    <model name="gate_5">
+      <pose>44.7 1.4 1.4 0 0 0.8</pose>
+      <static>true</static>
+      <link name="gate_5_body">
+        <collision name="gate_5_collision">
+          <geometry>
+            <mesh>
+              <uri>model://race_track/real_world/gate/meshes/gate.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="gate_5_visual">
+          <geometry>
+            <mesh>
+              <uri>model://race_track/real_world/gate/meshes/gate.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Red</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+<!------------------------------------------------------------
+      ---- Gate 6
+      ------------------------------------------------------------>
+
+    <model name="gate_6">
+      <pose>44.7 1.4 1.4 0 0 0.8</pose>
+      <static>true</static>
+      <link name="gate_6_body">
+        <collision name="gate_6_collision">
+          <geometry>
+            <mesh>
+              <uri>model://race_track/real_world/gate/meshes/gate.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="gate_6_visual">
+          <geometry>
+            <mesh>
+              <uri>model://race_track/real_world/gate/meshes/gate.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Red</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+<!------------------------------------------------------------
+      ---- Gate 7
+      ------------------------------------------------------------>
+
+    <model name="gate_7">
+      <pose>44.7 1.4 1.4 0 0 0.8</pose>
+      <static>true</static>
+      <link name="gate_7_body">
+        <collision name="gate_7_collision">
+          <geometry>
+            <mesh>
+              <uri>model://race_track/real_world/gate/meshes/gate.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="gate_7_visual">
+          <geometry>
+            <mesh>
+              <uri>model://race_track/real_world/gate/meshes/gate.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Red</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+
+
+        <state world_name='dubai_track'>
+      <sim_time>0 0</sim_time>
+      <real_time>0 0</real_time>
+      <wall_time>1510043711 945147391</wall_time>
+      <iterations>0</iterations>
+
+     
+      
+
+      <model name='ground_plane'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+
+      <light name='sun'>
+        <pose frame=''>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    
+
+  </world>
+</sdf>

@@ -1,0 +1,20 @@
+quad_name: 'hummingbird'
+log_dir: '/tmp/test'
+ideal_inputs: False
+seq_len: 1
+verbose: False
+throw_params:
+  vlin_range: 5
+  vang_range: 5
+  pos_range: 5
+checkpoint:
+  resume_training: True
+  resume_file: "ckpt/loop/fts_and_imu/ckpt-7"
+test_time:
+  max_rollouts: 5
+  min_number_fts: 40
+  execute_nw_predictions: True
+  fallback_threshold_thrust: 100
+  fallback_threshold_rates: 100
+  use_imu: True
+  use_fts_tracks: True

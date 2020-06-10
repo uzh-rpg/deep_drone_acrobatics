@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="quad_name" default="hummingbird"/>
+    <arg name="use_ground_truth" default="true"/>
+    <arg name="controller" default="rpg_mpc"/> <!-- "rpg_mpc", "rpg_pid", "asl_mpc" -->
+
+    <!-- Quad Minisim -->
+    <include file="$(find quad_minisim)/launch/minisim.launch">
+        <arg name="quad_name" value="$(arg quad_name)"/>
+    </include>
+
+    <!-- Quadrotor simulation -->
+    <!-- include file="$(find rpg_rotors_interface)/launch/quadrotor_empty_world_no_controller.launch">
+        <arg name="quad_name" value="$(arg quad_name)"/>
+    </include -->
+
+    <!-- custom RotorS interface --> 
+    <!-- include file="$(find fpv_aggressive_trajectories)/launch/custom_rotors_interface.launch">
+        <arg name="quad_name" value="$(arg quad_name)"/>
+        <arg name="use_ground_truth" value="$(arg use_ground_truth)"/>
+    </include -->
+
+    <!-- High Level Controller -->
+    <include file="$(find fpv_aggressive_trajectories)/launch/simulation/controller.launch">
+        <arg name="quad_name" value="$(arg quad_name)"/>
+        <arg name="use_ground_truth" value="$(arg use_ground_truth)"/>
+        <arg name="controller" value="$(arg controller)"/>
+        <arg name="enable_command_feedthrough" value="false"/>
+        <arg name="velocity_estimate_in_world_frame" value="true"/>
+    </include>
+
+    <group ns="$(arg quad_name)">
+        <!-- Trajectory Generation -->
+        <node pkg="fpv_aggressive_trajectories" name="fpv_aggressive_trajectories"
+              type="fpv_aggressive_trajectories" output="screen">
+            <param name="loop_rate" value="55.0"/>
+            <param name="desired_yaw_P" value="0.0"/>
+            <param name="circle_velocity" value="3.5"/> <!-- 3.5 for nice looping; 1.0-2.0 for testing -->
+            <param name="n_loops" value="1"/>
+        </node>
+
+        <!-- Visualization -->
+        <node pkg="trajectory_visualizer" name="trajectory_visualizer"
+              type="trajectory_visualizer" output="screen">
+            <param name="n_points_to_visualize" value="300"/>
+        </node>
+
+        <node pkg="rviz" type="rviz" name="viz_face"
+              args="-d $(find fpv_aggressive_trajectories)/rviz/trajectory_comparison_looping_sim.rviz"/>
+
+        <!-- node pkg="rqt_gui" name="rqt_gui" type="rqt_gui"
+              args="- -clear-config - -perspective-file $(find fpv_aggressive_trajectories)/rviz/simulation_looping.perspective"/ -->
+
+    </group>
+
+
+</launch>

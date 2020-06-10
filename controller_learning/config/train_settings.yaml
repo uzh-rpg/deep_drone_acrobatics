@@ -1,0 +1,18 @@
+log_dir: 'results/train_fma_cork_seq_1_fts_tracks_newcam_new_end'
+quad_name: 'none'
+seq_len: 1 # History Lenght. When increasing to more than one, the model becomes machine dependent due to data saving latency.
+checkpoint:
+  # Put to true and add a path for loading a ckpt
+  resume_training: False
+  resume_file: ""
+train:
+  max_training_epochs: 150
+  max_allowed_error: 0.7
+  batch_size: 32
+  summary_freq: 400
+  min_number_fts: 40
+  train_dir: "data/loop/train"
+  val_dir: "data/loop/val"
+  save_every_n_epochs: 5
+  use_imu: True
+  use_fts_tracks: True

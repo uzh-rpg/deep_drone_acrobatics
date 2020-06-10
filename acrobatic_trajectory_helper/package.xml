@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>acrobatic_trajectory_helper</name>
+  <version>0.0.0</version>
+  <description>The acrobatic_trajectory_helper package</description>
+
+  <maintainer email="ekaufmann@ifi.uzh.ch">Elia Kaufmann</maintainer>
+  <license>MIT</license>
+
+  <author>Elia Kaufmann</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>catkin_simple</buildtool_depend>
+
+  <depend>eigen_catkin</depend>
+  <depend>minimum_jerk_trajectories</depend>
+  <depend>polynomial_trajectories</depend>
+  <depend>quadrotor_common</depend>
+  <depend>roscpp</depend>
+
+  <export>
+
+  </export>
+</package>
+

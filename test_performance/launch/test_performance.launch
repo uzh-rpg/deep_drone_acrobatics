@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>	
+  <node name="test_performance" pkg="test_performance" type="test_performance.py" output="screen">      
+      <param name="mpc_dir" value="$(find rpg_mpc)"/>
+  </node>
+</launch>	

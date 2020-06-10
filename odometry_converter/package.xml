@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>odometry_converter</name>
+    <version>0.0.0</version>
+    <description>A package containing utils for simulation</description>
+
+    <maintainer email="ekaufmann@ifi.uzh.ch">Elia Kaufmann</maintainer>
+    <license>GNU GPL</license>
+
+    <buildtool_depend>catkin</buildtool_depend>
+    <buildtool_depend>catkin_simple</buildtool_depend>
+
+    <depend>roscpp</depend>
+    <depend>minkindr_conversions</depend>
+    <depend>nav_msgs</depend>
+    <depend>quadrotor_msgs</depend>
+    <depend>rpg_common</depend>
+    <depend>tf</depend>
+
+</package>
