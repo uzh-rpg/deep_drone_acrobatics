@@ -6,7 +6,6 @@ This repo contains the code associated to our paper Deep Drone Acrobatics.
   <img src="./img/fma_powerloop.gif" alt="dda">
 </p>
 
-For more information visit the project page:[http://rpg.ifi.uzh.ch/research\_drone\_racing.html](http://rpg.ifi.uzh.ch/research_drone_racing.html).
 
 #### Citing
 
