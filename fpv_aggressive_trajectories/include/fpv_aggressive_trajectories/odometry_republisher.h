@@ -2,7 +2,7 @@
 
 #include <nav_msgs/Odometry.h>
 #include <ros/ros.h>
-#include <rpg_common/pose.h>
+#include <pose_utils/pose.h>
 
 namespace odometry_republisher {
 

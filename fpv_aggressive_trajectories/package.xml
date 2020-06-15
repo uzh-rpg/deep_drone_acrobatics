@@ -16,12 +16,11 @@
   <depend>autopilot</depend>
   <depend>eigen_catkin</depend>
   <depend>minimum_jerk_trajectories</depend>
-  <depend>nav_msgs</depend>
   <depend>quadrotor_common</depend>
   <depend>quadrotor_msgs</depend>
   <depend>roscpp</depend>
-  <depend>rpg_common</depend>
+  <depend>pose_utils</depend>
   <depend>rpg_mpc</depend>
   <depend>std_msgs</depend>
-
+  <depend>nav_msgs</depend>
 </package>

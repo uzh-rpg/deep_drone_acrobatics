@@ -10,7 +10,7 @@
 #include "nav_msgs/Odometry.h"
 #include "quadrotor_msgs/AutopilotFeedback.h"
 #include "quadrotor_msgs/ControlCommand.h"
-#include "rpg_common/pose.h"
+#include "pose_utils/pose.h"
 #include "sensor_msgs/Imu.h"
 #include "std_msgs/Bool.h"
 #include "std_msgs/Int8.h"
@@ -31,6 +31,7 @@ class OdometryConverter {
 
   void groundTruthCallback(const nav_msgs::OdometryConstPtr& msg);
 
+  //  void switchCallback(const std_msgs::BoolConstPtr& msg);
   void switchCallback(const std_msgs::Int8ConstPtr& msg);
 
   bool loadParameters();
@@ -52,6 +53,7 @@ class OdometryConverter {
   rpg::Pose T_W_V_;
   rpg::Pose T_B_S_;
   STATES switch_odometry_ = STATES::kGroundTruth;
+  //  bool switch_odometry_ = false;
   tf::TransformBroadcaster tf_broadcaster_;
 };
 

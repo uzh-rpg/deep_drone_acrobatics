@@ -14,7 +14,7 @@
     <depend>minkindr_conversions</depend>
     <depend>nav_msgs</depend>
     <depend>quadrotor_msgs</depend>
-    <depend>rpg_common</depend>
+    <depend>pose_utils</depend>
     <depend>tf</depend>
 
 </package>

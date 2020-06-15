@@ -15,7 +15,7 @@
     <depend>gazebo_msgs</depend>
     <depend>mav_msgs</depend>
     <depend>quadrotor_common</depend>
-    <depend>rpg_common</depend>
+    <depend>pose_utils</depend>
     <depend>rotors_gazebo</depend>
     <depend>rotors_description</depend>
     <depend>manual_flight_assistant</depend>

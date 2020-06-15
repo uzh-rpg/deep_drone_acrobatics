@@ -9,7 +9,7 @@
 #include "mav_msgs/Actuators.h"
 #include "nav_msgs/Odometry.h"
 #include "quadrotor_msgs/AutopilotFeedback.h"
-#include "rpg_common/pose.h"
+#include "pose_utils/pose.h"
 #include "std_msgs/Bool.h"
 
 namespace custom_rotors_interface {
