@@ -35,9 +35,9 @@ repositories:
     type: git
     url: git@github.com:ethz-asl/numpy_eigen.git
     version: master
-  rpg_common:
+  pose_utils:
     type: git
-    url: git@github.com:uzh-rpg/rpg_common.git
+    url: git@github.com:antonilo/pose_utils.git
     version: master
   minimum_jerk_trajectories:
     type: git
