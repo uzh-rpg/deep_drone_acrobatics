@@ -50,11 +50,11 @@ catkin config --merge-devel
 catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS=-fdiagnostics-color
 cd src
 
-git clone https://github.com/uzh-rpg/acrobatic_flight.git
-cd acrobatic_flight
+git clone https://github.com/uzh-rpg/deep_drone_acrobatics.git
+cd deep_drone_acrobatics
 git checkout release
 cd ..
-vcs-import < acrobatic_flight/dependencies.yaml
+vcs-import < deep_drone_acrobatics/dependencies.yaml
 
 #install extra dependencies (might need more depending on your OS)
 sudo apt-get install libqglviewer-dev-qt5
@@ -72,7 +72,7 @@ catkin build
 . ../devel/setup.bash
 
 # Create your learning environment
-cd acrobatic_flight
+cd deep_drone_acrobatics
 conda create --name drone_flow python=3.6
 conda activate drone_flow
 # Install (in an hacky way) python requirements
