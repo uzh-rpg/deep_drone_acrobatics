@@ -13,6 +13,8 @@ If you use this code in an academic context, please cite the following publicati
 
 Paper: [Deep Drone Acrobatics](http://rpg.ifi.uzh.ch/docs/RSS20_Kaufmann.pdf)
 
+RSS 2020 Video Pitch: [Youtube](https://youtu.be/r4zzdFw87CY)
+
 Video: [YouTube](https://youtu.be/2N_wKXQ6MXA)
 
 ```
