@@ -53,9 +53,6 @@ catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS=-fdiagno
 cd src
 
 git clone https://github.com/uzh-rpg/deep_drone_acrobatics.git
-cd deep_drone_acrobatics
-git checkout release
-cd ..
 vcs-import < deep_drone_acrobatics/dependencies.yaml
 
 #install extra dependencies (might need more depending on your OS)
