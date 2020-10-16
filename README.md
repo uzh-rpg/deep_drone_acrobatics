@@ -20,7 +20,7 @@ Video: [YouTube](https://youtu.be/2N_wKXQ6MXA)
 ```
 @article{kaufmann2020RSS,
   title={Deep Drone Acrobatics},
-  author={Elia, Kaufmann and Antonio, Loquercio and René, Ranftl and Matthias, Müller and Vladlen, Koltun and Davide, Scaramuzza},
+  author={Kaufmann, Elia and Loquercio, Antonio and Ranftl, Ren{\'e} and M{\"u}ller, Matthias and Koltun, Vladlen and Scaramuzza, Davide},
   journal={RSS: Robotics, Science, and Systems},
   year={2020},
   publisher={IEEE}
