@@ -18,13 +18,15 @@ RSS 2020 Video Pitch: [Youtube](https://youtu.be/r4zzdFw87CY)
 Video: [YouTube](https://youtu.be/2N_wKXQ6MXA)
 
 ```
-@article{kaufmann2020RSS,
+@inproceedings{kaufmann2020RSS,
   title={Deep Drone Acrobatics},
   author={Kaufmann, Elia and Loquercio, Antonio and Ranftl, Ren{\'e} and M{\"u}ller, Matthias and Koltun, Vladlen and Scaramuzza, Davide},
-  journal={RSS: Robotics, Science, and Systems},
-  year={2020},
-  publisher={IEEE}
-}
+  booktitle={Proceedings of Robotics: Science and Systems}, 
+  year={2020}, 
+  address={Corvalis, Oregon, USA}, 
+  month={July}, 
+  doi={10.15607/RSS.2020.XVI.040} 
+} 
 ```
 
 ## Installation
