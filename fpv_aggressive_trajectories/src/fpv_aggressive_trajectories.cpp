@@ -111,9 +111,14 @@ void FPVAggressiveTrajectories::computeManeuver() {
   bool success = true;
   Eigen::Vector3d offset_circle_from_start = Eigen::Vector3d(4.0, 0.0, 0.0);
   Eigen::Vector3d offset_circle_from_end = Eigen::Vector3d(-1.0, 0.0, 1.5);
+  // standard loop
   success = success && acrobatic_sequence.appendLoops(
                            1, 4.5, 1.5, offset_circle_from_start,
                            offset_circle_from_end, true, traj_sampling_freq_);
+  // matty loop
+  // success = success && acrobatic_sequence.appendMattyLoop(1, 4.5, 1.5, offset_circle_from_start, offset_circle_from_end);
+  // barrel roll
+  // success = success && acrobatic_sequence.appendBarrelRoll(1, 4.5, 1.5, offset_circle_from_start, offset_circle_from_end, true);
 
   visualizer_->visualizeTrajectories(acrobatic_sequence.getManeuverList());
 
