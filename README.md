@@ -65,7 +65,7 @@ Before continuing, make sure that your protobuf compiler version is 3.0.0.
 To check this out, type in a terminal ``protoc --version``.
 If This is not the case, then check out [this guide](https://github.com/linux-on-ibm-z/docs/wiki/Building-ProtoBuf-3.0.0) on how to do it.
 
-
+Note that building the VINS-Mono package requires to install the [Ceres Solver](http://ceres-solver.org/index.html). You can find installation instructions [here](https://github.com/HKUST-Aerial-Robotics/VINS-Mono) or [here](http://ceres-solver.org/installation.html).
 
 ```bash
 # Build and re-source the workspace
