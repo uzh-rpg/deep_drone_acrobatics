@@ -7,11 +7,17 @@ import random
 import numpy as np
 import rospy
 from nav_msgs.msg import Odometry
-from quadrotor_msgs.msg import ControlCommand
+
 from std_msgs.msg import Bool
 from std_msgs.msg import Empty
 
+import sys
+sys.path.insert(1,'/home/archit/drone_acrobatics_ws/catkin_dda/devel/lib/python3/dist-packages')
+from quadrotor_msgs.msg import ControlCommand
+
 from .TrajectoryBase import TrajectoryBase, TRACK_NUM_NORMALIZE
+
+
 
 
 

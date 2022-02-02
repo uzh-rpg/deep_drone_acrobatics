@@ -6,7 +6,7 @@ import sys
 import time
 import numpy as np
 import rospy
-from ControllerLearning import TrajectoryLearning
+from src.ControllerLearning import TrajectoryLearning
 from std_msgs.msg import Bool
 from common import update_mpc_params, setup_sim, random_replace, initialize_vio
 

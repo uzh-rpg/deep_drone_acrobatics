@@ -9,6 +9,9 @@ import random
 import numpy as np
 import rospy
 from nav_msgs.msg import Odometry
+# from quadrotor_msgs.msg import ControlCommand
+import sys
+sys.path.insert(0,'/home/archit/drone_acrobatics_ws/catkin_dda/devel/lib/python3/dist-packages')
 from quadrotor_msgs.msg import ControlCommand
 from quadrotor_msgs.msg import TrajectoryPoint
 from sensor_msgs.msg import PointCloud
