@@ -13,6 +13,6 @@ trollius==2.1.post2
 pyqt5==5.13.2
 catkin-pkg==0.4.14
 rospkg==1.1.10
-opencv_python==4.2.0
+opencv_python==4.2.0.34
 scipy==1.4.1
 
